@@ -1,0 +1,19 @@
+$primary: #6f42c1;
+.text-purple {
+  color: #6f42c1;
+}
+.border-purple {
+  border-color: #6f42c1 !important;
+}
+.bg-white.text-purple.border-purple{
+  color: #6f42c1;
+}
+.button-white-purple:hover,
+.bg-white.text-purple.border-purple:hover {
+  background-color: #f5f0fa !important;
+  color: #6f42c1; 
+  border-color: #6f42c1 !important;
+}
+
+
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,179 @@
+pregunta 1:consultal en los clientes ciudad, direcion
+SELECT CustomerName, City, 	PostalCode FROM Customers;
+
+CustomerName	City	PostalCode
+Alfreds Futterkiste	Berlin	12209
+Ana Trujillo Emparedados y helados	México D.F.	05021
+Antonio Moreno Taquería	México D.F.	05023
+Around the Horn	London	WA1 1DP
+Berglunds snabbköp	Luleå	S-958 22
+Blauer See Delikatessen	Mannheim	68306
+Blondel père et fils	Strasbourg	67000
+Bólido Comidas preparadas	Madrid	28023
+
+pregunta2:consultar los clientes en mexico
+SELECT * FROM Customers
+WHERE Country='Mexico';
+
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+2	Ana Trujillo Emparedados y helados	Ana Trujillo	Avda. de la Constitución 2222	México D.F.	05021	Mexico
+3	Antonio Moreno Taquería	Antonio Moreno	Mataderos 2312	México D.F.	05023	Mexico
+13	Centro comercial Moctezuma	Francisco Chang	Sierras de Granada 9993	México D.F.	05022	Mexico
+58	Pericles Comidas clásicas	Guillermo Fernández	Calle Dr. Jorge Cash 321	México D.F.	05033	Mexico
+80	Tortuga Restaurante	Miguel Angel Paolino	Avda. Azteca 123	México D.F.	05033	Mexico
+
+pregunta3:consultar los clientes en mexico ordenados acendentemente por nombre.
+SELECT * FROM Customers
+WHERE Country='Mexico' ORDER by ContactName;
+
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+2	Ana Trujillo Emparedados y helados	Ana Trujillo	Avda. de la Constitución 2222	México D.F.	05021	Mexico
+3	Antonio Moreno Taquería	Antonio Moreno	Mataderos 2312	México D.F.	05023	Mexico
+13	Centro comercial Moctezuma	Francisco Chang	Sierras de Granada 9993	México D.F.	05022	Mexico
+58	Pericles Comidas clásicas	Guillermo Fernández	Calle Dr. Jorge Cash 321	México D.F.	05033	Mexico
+80	Tortuga Restaurante	Miguel Angel Paolino	Avda. Azteca 123	México D.F.	05033	Mexico
+
+pregunta4:consulta los cliente que esten en america 
+SELECT * FROM Customers
+WHERE Country='mexico' OR Country='brazil' OR Country='usa'OR Country='venezuela' OR Country='canada' OR Country='argentina';
+
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+2	Ana Trujillo Emparedados y helados	Ana Trujillo	Avda. de la Constitución 2222	México D.F.	05021	Mexico
+3	Antonio Moreno Taquería	Antonio Moreno	Mataderos 2312	México D.F.	05023	Mexico
+10	Bottom-Dollar Marketse	Elizabeth Lincoln	23 Tsawassen Blvd.	Tsawassen	T2F 8M4	Canada
+12	Cactus Comidas para llevar	Patricio Simpson	Cerrito 333	Buenos Aires	1010	Argentina
+13	Centro comercial Moctezuma	Francisco Chang	Sierras de Granada 9993	México D.F.	05022	Mexico
+15	Comércio Mineiro	Pedro Afonso	Av. dos Lusíadas, 23	São Paulo	05432-043	Brazil
+21	Familia Arquibaldo	Aria Cruz	Rua Orós, 92	São Paulo	05442-030	Brazil
+
+pregunta5:consulta en la tabla las ordenes de una cantidad mayor a 5 y menor a 15. 
+SELECT * FROM OrderDetails WHERE Quantity BETWEEN 5 AND 15;
+
+OrderDetailID	OrderID	ProductID	Quantity
+1	10248	11	12
+2	10248	42	10
+3	10248	72	5
+4	10249	14	9
+6	10250	41	10
+8	10250	65	15
+9	10251	22	6
+
+preguntas6:consulte los clientes que no esten en mexico 
+SELECT * FROM Customers
+WHERE NOT Country='mexico';
+
+
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+1	Alfreds Futterkiste	Maria Anders	Obere Str. 57	Berlin	12209	Germany
+4	Around the Horn	Thomas Hardy	120 Hanover Sq.	London	WA1 1DP	UK
+5	Berglunds snabbköp	Christina Berglund	Berguvsvägen 8	Luleå	S-958 22	Sweden
+6	Blauer See Delikatessen	Hanna Moos	Forsterstr. 57	Mannheim	68306	Germany
+7	Blondel père et fils	Frédérique Citeaux	24, place Kléber	Strasbourg	67000	France
+8	Bólido Comidas preparadas	Martín Sommer	C/ Araquil, 67	Madrid	28023	Spain
+9	Bon app'	Laurence Lebihans	12, rue des Bouchers	Marseille	13008	France
+10	Bottom-Dollar Marketse	Elizabeth Lincoln	23 Tsawassen Blvd.	Tsawassen	T2F 8M4	Canada
+
+pregunta7:cuanta es la cantidad de clientes en america
+SELECT * FROM Customers
+WHERE Country='mexico' OR Country='brazil' OR Country='usa'OR Country='venezuela' OR Country='canada' OR Country='argentina';
+
+Number of Records: 37
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+2	Ana Trujillo Emparedados y helados	Ana Trujillo	Avda. de la Constitución 2222	México D.F.	05021	Mexico
+3	Antonio Moreno Taquería	Antonio Moreno	Mataderos 2312	México D.F.	05023	Mexico
+10	Bottom-Dollar Marketse	Elizabeth Lincoln	23 Tsawassen Blvd.	Tsawassen	T2F 8M4	Canada
+12	Cactus Comidas para llevar	Patricio Simpson	Cerrito 333	Buenos Aires	1010	Argentina
+13	Centro comercial Moctezuma	Francisco Chang	Sierras de Granada 9993	México D.F.	05022	Mexico
+15	Comércio Mineiro	Pedro Afonso	Av. dos Lusíadas, 23	São Paulo	05432-043	Brazil
+21	Familia Arquibaldo	Aria Cruz	Rua Orós, 92	São Paulo	05442-030	Brazil
+31	Gourmet Lanchonetes	André Fonseca	Av. Brasil, 442	Campinas	04876-786	Brazil
+
+pregunta8:consulta las ordenes mayores a enero de 1997 y menores a diciembre de 1997
+SELECT * FROM Orders WHERE orderdate >'1997-01-01' AND orderdate < '1997-12-31';
+
+OrderID	CustomerID	EmployeeID	OrderDate	ShipperID
+10402	20	8	1997-01-02	2
+10403	20	4	1997-01-03	3
+10404	49	2	1997-01-03	1
+10405	47	1	1997-01-06	1
+10406	62	7	1997-01-07	1
+10407	56	2	1997-01-07	2
+10408	23	8	1997-01-08	1
+10409	54	3	1997-01-09	1
+
+pregunta9:consultar los productos mayores a 15 ordenar de menor a mayor por precio
+SELECT * FROM Products WHERE price >15 ORDER BY price AsC;
+
+15	Genen Shouyu	6	2	24 - 250 ml bottles	15.50
+50	Valkoinen suklaa	23	3	12 - 100 g bars	16.25
+66	Louisiana Hot Spiced Okra	2	2	24 - 8 oz jars	17.00
+16	Pavlova	7	3	32 - 500 g boxes	17.45
+1	Chais	1	1	10 boxes x 20 bags	18.00
+35	Steeleye Stout	16	1	24 - 12 oz bottles	18.00
+39	Chartreuse verte	18	1	750 cc per bottle	18.00
+76	Lakkalikööri	23	1	500 ml	18.00
+40	Boston Crab Meat	19	8	24 - 4 oz tins	18.40
+2	Chang	1	1	24 - 12 oz bottles	19.00
+36	Inlagd Sill	17	8	24 - 250 g jars	19.00
+44	Gula Malacca	20	2	20 - 2 kg bags	19.45
+57	Ravioli Angelo	26	5	24 - 250 g pkgs.	19.50
+49	Maxilaku	23	3	24 - 50 g pkgs.	20.00
+11	Queso Cabrales	5	4	1 kg pkg.	21.00
+22	Gustaf's Knäckebröd	9	5	24 - 500 g pkgs.	21.00
+65	Louisiana Fiery Hot Pepper Sauce	2	2	32 - 8 oz bottles	21.05
+5	Chef Anton's Gumbo Mix	2	2	36 boxes	21.35
+71	Fløtemysost	15	4	10 - 500 g pkgs.	21.50
+4	Chef Anton's Cajun Seasoning	2	2	48 - 6 oz jars	22.00
+14	Tofu	6	7	40 - 100 g pkgs.	23.25
+55	Pâté chinois	25	6	24 boxes x 2 pies	24.00
+6	Grandma's Boysenberry Spread	3	2	12 - 8 oz jars	25.00
+30	Nord-Ost Matjeshering	13	8	10 - 200 g glasses	25.89
+37	Gravad lax	17	8	12 - 500 g pkgs.	26.00
+61	Sirop d'érable	29	2	24 - 500 ml bottles	28.50
+7	Uncle Bob's Organic Dried Pears	3	7	12 - 1 lb pkgs.	30.00
+10	Ikura	4	8	12 - 200 ml jars	31.00
+26	Gumbär Gummibärchen	11	3	100 - 250 g bags	31.23
+32	Mascarpone Fabioli	14	4	24 - 200 g pkgs.	32.00
+53	Perth Pasties	24	6	48 pieces	32.80
+64	Wimmers gute Semmelknödel	12	5	20 bags x 4 pieces	33.25
+60	Camembert Pierrot	28	4	15 - 300 g rounds	34.00
+72	Mozzarella di Giovanni	14	4	24 - 200 g pkgs.	34.80
+69	Gudbrandsdalsost	15	4	10 kg pkg.	36.00
+12	Queso Manchego La Pastora	5	4	10 - 500 g pkgs.	38.00
+56	Gnocchi di nonna Alice	26	5	24 - 250 g pkgs.	38.00
+17	Alice Mutton	7	6	20 - 1 kg tins	39.00
+8	Northwoods Cranberry Sauce	3	2	12 - 12 oz jars	40.00
+27	Schoggi Schokolade	11	3	100 - 100 g pieces	43.90
+63	Vegie-spread	7	2	15 - 625 g jars	43.90
+28	Rössle Sauerkraut	12	7	25 - 825 g cans	45.60
+43	Ipoh Coffee	20	1	16 - 500 g tins	46.00
+62	Tarte au sucre	29	3	48 pies	49.30
+51	Manjimup Dried Apples	24	7	50 - 300 g pkgs.	53.00
+59	Raclette Courdavault	28	4	5 kg pkg.	55.00
+18	Carnarvon Tigers	7	8	16 kg pkg.	62.50
+20	Sir Rodney's Marmalade	8	3	30 gift boxes	81.00
+9	Mishi Kobe Niku	4	6	18 - 500 g pkgs.	97.00
+29	Thüringer Rostbratwurst	12	6	50 bags x 30 sausgs.	123.79
+38	Côte de Blaye	18	1	12 - 75 cl bottles	263.50
+
+pregunta10:consulta los clientes que estan en alemania ordenarlos por ordden alfabetico
+SELECT * FROM Customers where country='germany' ORDER bY customername asc;
+
+CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
+1	Alfreds Futterkiste	Maria Anders	Obere Str. 57	Berlin	12209	Germany
+6	Blauer See Delikatessen	Hanna Moos	Forsterstr. 57	Mannheim	68306	Germany
+86	Die Wandernde Kuh	Rita Müller	Adenauerallee 900	Stuttgart	70563	Germany
+17	Drachenblut Delikatessend	Sven Ottlieb	Walserweg 21	Aachen	52066	Germany
+25	Frankenversand	Peter Franken	Berliner Platz 43	München	80805	Germany
+39	Königlich Essen	Philip Cramer	Maubelstr. 90	Brandenburg	14776	Germany
+44	Lehmanns Marktstand	Renate Messner	Magazinweg 7	Frankfurt a.M.	60528	Germany
+52	Morgenstern Gesundkost	Alexander Feuer	Heerstr. 22	Leipzig	04179	Germany
+
+pregunta11:consultar los clientes ordenados por cuidad asendentemente ,y con nombre desndentemente
+
+
+                                                                                                                                                                                                                                                                                                                                            
+pregunta13:contar los clientes que estan en mexico
+pregunta14:contar los clientes que no estan en brazil ni en mexico
+pregunta15:consultarlos primeros cinco productos(limint) q   
+y7

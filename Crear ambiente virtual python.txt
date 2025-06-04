@@ -1,0 +1,75 @@
+Crear ambiente virtual:
+ejecutar en la terminal
+
+- Python o py -m venv envNOMBREDELAMBIENTE. (EJ: Python -m venv envajcv)
+
+ACTIVACION DEL AMBIENTE:
+
+cd envNOMBREDELAMBIENTE (EJ cd envajcv)  
+
+------- visualiza la librería el cual nos muestra el pip( intalacion de paqutes de Python)------
+
+------visualizar scripts carpeta------
+
+Activar ambiente:
+.\scripts\actívate  
+
+desactivar servidor ctlr + c
+
+desactivar aplicativo: deactivate
+
+Ver versión de pip:
+
+pip list
+
+instalar paquetes de py:
+
+pip install django MySQL.
+
+-----ejecutar pip list para validar la instalacion------   lista correcta:  asgiref----Django----mysql----mysqlclient---------pip----sqlparse------tzdata.
+
+CONFIGURACION INICIAL.
+-------------------------------
+CREAR PROYECTO
+
+django-admin startproject prjdjajcv  (django-admin startproject prjdjNOMBREDELPROYECTO)
+
+Cambiarse al proyecto:  cd NOMBRE DEL PROYECTO (EJ.. cd prjdjajcv)
+
+Verificación para saber si esta funcionando:  Python manage.py runserver
+
+CREAR APLICATIVO: ller comandos de manage.py
+
+Python manage.py startapp appdjajcv
+
+CREAR CARPETAS TEMPLATES Y STATIC
+
+Crear carpetas en static: js,css,images.
+
+crear carpeta en templates con el nombre del aplicativo
+
+matricular el proyecto en installed_apps   se grega al final el nombre del proyecto.
+
+entrar al archivo url.py   agregar el include después del path del segundo from.
+
+en el urlpatterns  agregar, path('app.com/', include('appdjajcv.urls)),  matricular aplicativo
+
+
+-----En la carpeta del applicativo crear archivo urls.py
+
+---En la carpeta de urls.py creada,   copiar desde el segundo from de urls anterior.  Y se borra el include.
+
+se eliminan los path, para crear una  nueva ruta. 
+
+path('', views.index, name='index'),
+
+Llamar el views  from.import views
+
+----ir a la archivo views y agregar:   def index(request)  y se agrega return render(request,"appdjajcv/index.html")
+
+---Se debe crear en la carpeta de templates/appdjajcv  index.html
+
+para ejecutarlo:   Python manage.py runserver.
+
+
+La próxima clase  se empezara directamente de como crear rutas.
